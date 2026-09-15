@@ -48,9 +48,9 @@ Redirect 301 /blogs/python-for-data-science-roadmap.html /python-for-data-scienc
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^([a-z0-9-]+-course-jaipur)\.php$ course.php?slug=$1 [L,QSA,NC]
 
-# Learning-guide routing.
+# SEO learning-guide routing.
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(best-data-science-course-career-guide|data-analytics-vs-data-science|python-for-data-science-roadmap)\.php$ guide.php?slug=$1 [L,QSA,NC]
+RewriteRule ^(best-data-science-course-career-guide|data-analytics-vs-data-science|python-for-data-science-roadmap|best-data-science-course-jaipur-2026|data-science-course-fees-jaipur|data-science-syllabus-roadmap-2026|data-analyst-roadmap-2026|data-analytics-course-syllabus-jaipur|power-bi-roadmap-beginners|sql-for-data-analysts-roadmap|generative-ai-for-data-analysts)\.php$ guide.php?slug=$1 [L,QSA,NC]
 
 # Basic security headers where supported by Apache.
 <IfModule mod_headers.c>
