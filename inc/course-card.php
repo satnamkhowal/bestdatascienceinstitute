@@ -17,6 +17,21 @@ if (!function_exists('bdsi_course_visual_meta')) {
             'java-programming-course-jaipur' => ['JAVA', 'Java', 'tone-rose'],
             'c-programming-course-jaipur' => ['C', 'C Programming', 'tone-slate'],
             'cpp-programming-course-jaipur' => ['C++', 'C++', 'tone-blue'],
+            'javascript-course-jaipur' => ['JS', 'JavaScript', 'tone-gold'],
+            'php-course-jaipur' => ['PHP', 'PHP', 'tone-purple'],
+            'c-sharp-course-jaipur' => ['C#', 'C#', 'tone-violet'],
+            'data-structures-algorithms-course-jaipur' => ['DSA', 'DSA', 'tone-blue'],
+            'mern-stack-course-jaipur' => ['MERN', 'MERN Stack', 'tone-green'],
+            'mean-stack-course-jaipur' => ['MEAN', 'MEAN Stack', 'tone-rose'],
+            'java-full-stack-course-jaipur' => ['JFS', 'Java Full Stack', 'tone-orange'],
+            'python-full-stack-course-jaipur' => ['PFS', 'Python Full Stack', 'tone-gold'],
+            'asp-net-full-stack-course-jaipur' => ['.NET', 'ASP.NET Full Stack', 'tone-indigo'],
+            'react-js-course-jaipur' => ['RE', 'React.js', 'tone-cyan'],
+            'business-analytics-course-jaipur' => ['BA', 'Business Analytics', 'tone-blue'],
+            'cloud-computing-course-jaipur' => ['CL', 'Cloud Computing', 'tone-cyan'],
+            'aws-course-jaipur' => ['AWS', 'AWS', 'tone-orange'],
+            'devops-course-jaipur' => ['DO', 'DevOps', 'tone-indigo'],
+            'cyber-security-course-jaipur' => ['CS', 'Cyber Security', 'tone-rose'],
             'digital-marketing-course-jaipur' => ['DM', 'Digital Marketing', 'tone-orange'],
         ];
 
@@ -41,7 +56,7 @@ if (!function_exists('bdsi_course_level')) {
         if ($category === 'Data Science & AI' || $category === 'Full Stack Development') {
             return 'Beginner to Advanced';
         }
-        if ($category === 'Analytics') {
+        if ($category === 'Analytics' || $category === 'Cloud & Security') {
             return 'Beginner to Intermediate';
         }
         return 'Beginner Friendly';
