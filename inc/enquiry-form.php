@@ -1,6 +1,12 @@
 <?php
 $sent = isset($_GET['sent']) && $_GET['sent'] === '1';
 $error = isset($_GET['error']);
+$formData = $data ?? require __DIR__.'/site-data.php';
+$formCourses = $formData['courses'] ?? [];
+$extraCourseFile = __DIR__.'/course-extras.php';
+if (is_file($extraCourseFile)) {
+  $formCourses = array_replace($formCourses, require $extraCourseFile);
+}
 ?>
 <div class="bdsi-form-wrap">
   <h3>Request Free Course Counselling</h3>
@@ -16,7 +22,7 @@ $error = isset($_GET['error']);
       <div class="col-md-6"><label for="email">Email Address</label><input id="email" class="form-control" type="email" name="email" maxlength="120"></div>
       <div class="col-md-6"><label for="city">City</label><input id="city" class="form-control" type="text" name="city" maxlength="80" value="Jaipur"></div>
       <div class="col-md-6"><label for="qualification">Current Qualification</label><select id="qualification" class="form-select" name="qualification"><option value="">Select</option><option>School Student</option><option>BCA</option><option>B.Tech</option><option>B.Sc</option><option>BBA</option><option>MCA</option><option>M.Tech</option><option>M.Sc</option><option>MBA</option><option>Graduate</option><option>Working Professional</option><option>Other</option></select></div>
-      <div class="col-md-6"><label for="program">Interested Program *</label><select id="program" class="form-select" name="program" required><option value="">Select course</option><option>Data Science</option><option>Data Analytics</option><option>Python Programming</option><option>Machine Learning</option><option>Artificial Intelligence</option><option>Generative AI</option><option>Power BI</option><option>SQL</option><option>Advanced Excel</option><option>Full Stack Development</option><option>Java Programming</option><option>Digital Marketing</option><option>Internship</option><option>Industrial Training</option><option>Final Year Project</option><option>College Admission</option><option>Other</option></select></div>
+      <div class="col-md-6"><label for="program">Interested Program *</label><select id="program" class="form-select" name="program" required><option value="">Select course</option><?php foreach($formCourses as $formCourse): $optionName=preg_replace('/ Course in Jaipur$/','',$formCourse['title'] ?? ''); if(!$optionName) continue; ?><option value="<?=htmlspecialchars($optionName)?>"><?=htmlspecialchars($optionName)?></option><?php endforeach; ?><option>Internship</option><option>Industrial Training</option><option>Final Year Project</option><option>College Admission</option><option>Other</option></select></div>
       <div class="col-12"><label for="message">Message / Requirement</label><textarea id="message" class="form-control" name="message" maxlength="1000" placeholder="Tell us your learning or career goal"></textarea></div>
       <div class="col-12"><div class="form-check"><input class="form-check-input" type="checkbox" value="1" id="consent" name="consent" required><label class="form-check-label" for="consent">I agree that Best Data Science Institute may contact me about this enquiry.</label></div></div>
       <div class="col-12"><button class="btn btn-accent w-100" type="submit">Request Counselling Call</button></div>
