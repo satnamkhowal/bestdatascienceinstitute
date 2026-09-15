@@ -1,0 +1,6 @@
+storage/private/leads.csv
+storage/private/*.log
+.env
+config.local.php
+.DS_Store
+Thumbs.db
