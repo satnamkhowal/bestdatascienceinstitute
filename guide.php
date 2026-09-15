@@ -1,6 +1,6 @@
 <?php
 $slug=preg_replace('/[^a-z0-9-]/','',$_GET['slug']??'');
-$articles=array_merge(require __DIR__.'/inc/guide-data.php', require __DIR__.'/inc/legacy-guide-data.php', require __DIR__.'/inc/guide-data-local-seo.php');
+$articles=array_merge(require __DIR__.'/inc/guide-data.php', require __DIR__.'/inc/legacy-guide-data.php', require __DIR__.'/inc/guide-data-local-seo.php', require __DIR__.'/inc/guide-data-interview-seo.php');
 if(!$slug || !isset($articles[$slug])){
   http_response_code(404);
   $pageTitle='Guide Not Found | Best Data Science Institute';
