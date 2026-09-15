@@ -1,0 +1,54 @@
+Options -Indexes
+DirectoryIndex index.php index.html
+RewriteEngine On
+
+# ----------------------------------------------------------------------
+# Legacy BestDataScienceInstitute.com URLs -> new equivalent destinations
+# Keep these as permanent redirects so old indexed links do not become 404s.
+# ----------------------------------------------------------------------
+Redirect 301 /index.html /
+Redirect 301 /courses.html /courses.php
+Redirect 301 /about.html /about.php
+Redirect 301 /blog.html /blog.php
+Redirect 301 /contact.html /contact.php
+Redirect 301 /blog-page-2.html /blog.php?page=2
+
+Redirect 301 /course-details/core-python.html /python-course-jaipur/
+Redirect 301 /course-details/data-analytics.html /data-analytics-course-jaipur/
+Redirect 301 /course-details/data-science.html /data-science-course-jaipur/
+
+Redirect 301 /blog-details/best-data-analytics-institute-in-jaipur.html /data-analytics-course-jaipur/
+Redirect 301 /blog-details/data-analytics-course-in-jaipur.html /data-analytics-course-jaipur/
+Redirect 301 /blog-details/best-data-science-institute-in-jaipur.html /data-science-course-jaipur/
+Redirect 301 /blog-details/data-science-course-in-jaipur.html /data-science-course-jaipur/
+
+# ----------------------------------------------------------------------
+# Backward-compatible aliases for the first rebuild routes.
+# ----------------------------------------------------------------------
+Redirect 301 /python-programming-jaipur.php /python-course-jaipur/
+Redirect 301 /data-science-with-artificial-intelligence-ai-jaipur.php /data-science-course-jaipur/
+Redirect 301 /data-analytics-course-jaipur.php /data-analytics-course-jaipur/
+Redirect 301 /web-development-training-jaipur.php /web-development-course-jaipur/
+Redirect 301 /generative-ai-course-jaipur.php /generative-ai-course-jaipur/
+Redirect 301 /agentic-ai-course-jaipur.php /agentic-ai-course-jaipur/
+Redirect 301 /power-bi-course-jaipur.php /power-bi-course-jaipur/
+Redirect 301 /machine-learning-course-jaipur.php /machine-learning-course-jaipur/
+Redirect 301 /deep-learning-course-jaipur.php /deep-learning-course-jaipur/
+Redirect 301 /best-aws-cloud-training-in-jaipur.php /aws-course-jaipur/
+Redirect 301 /best-cyber-security-course-jaipur.php /cyber-security-course-jaipur/
+
+# Do not rewrite real files or directories.
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Clean Forsk-style course URL pattern. The front controller validates the slug.
+RewriteRule ^([a-z0-9][a-z0-9-]*)/?$ course.php?slug=$1 [L,QSA,NC]
+
+# Security headers where supported.
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
