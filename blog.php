@@ -1,7 +1,8 @@
 <?php
 $pageTitle='Data Science, Data Analytics & AI Career Guides | Best Data Science Institute';
 $pageDescription='Read practical 2026 guides on Data Science, Data Analytics, Python, SQL, Power BI, Generative AI, course fees, syllabus and career roadmaps.';
-$articles = require __DIR__.'/inc/guide-data.php';
+$articles = array_merge(require __DIR__.'/inc/guide-data.php', require __DIR__.'/inc/legacy-guide-data.php');
+$legacySlugs=['top-programming-skills-every-student-should-learn-before-graduation'];
 require __DIR__.'/inc/header.php';
 ?>
 <main class="bdsi-page">
@@ -9,8 +10,8 @@ require __DIR__.'/inc/header.php';
 <section class="bdsi-section"><div class="container">
   <div class="d-flex flex-wrap gap-2 mb-4"><span class="badge">Data Science</span><span class="badge">Data Analytics</span><span class="badge">Python</span><span class="badge">SQL</span><span class="badge">Power BI</span><span class="badge">Generative AI</span></div>
   <div class="row g-4">
-  <?php foreach($articles as $slug=>$a): ?>
-    <div class="col-md-6 col-xl-4"><article class="bdsi-course-card h-100"><span class="badge"><?=htmlspecialchars($a['category'])?></span><h3><?=htmlspecialchars($a['title'])?></h3><p><?=htmlspecialchars($a['description'])?></p><a href="<?=htmlspecialchars($slug)?>.php">Read Guide →</a></article></div>
+  <?php foreach($articles as $slug=>$a): $href=in_array($slug,$legacySlugs,true)?$slug.'/':$slug.'.php'; ?>
+    <div class="col-md-6 col-xl-4"><article class="bdsi-course-card h-100"><span class="badge"><?=htmlspecialchars($a['category'])?></span><h3><?=htmlspecialchars($a['title'])?></h3><p><?=htmlspecialchars($a['description'])?></p><a href="<?=htmlspecialchars($href)?>">Read Guide →</a></article></div>
   <?php endforeach; ?>
   </div>
 </div></section>
