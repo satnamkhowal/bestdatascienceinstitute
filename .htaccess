@@ -1,0 +1,60 @@
+DirectoryIndex index.php index.html
+
+RewriteEngine On
+
+# Protect implementation and lead-storage directories.
+RewriteRule ^(?:inc|storage)(?:/|$) - [F,L]
+
+# Legacy top-level HTML pages from the previous site/theme.
+Redirect 301 /index.html /
+Redirect 301 /index-2.html /
+Redirect 301 /about.html /about-us.php
+Redirect 301 /contact.html /contact.php
+Redirect 301 /blog.html /blog.php
+Redirect 301 /single_blog.html /blog.php
+Redirect 301 /bootcamp.html /courses.php
+Redirect 301 /bootcamp_detail.html /courses.php
+Redirect 301 /mentor.html /about-us.php
+Redirect 301 /team.html /about-us.php
+Redirect 301 /service.html /about-us.php#career-support
+Redirect 301 /faq.html /about-us.php#faqs
+Redirect 301 /pricing_plan.html /contact.php#enquiry
+
+# Existing live course URLs -> Forsk-style course URL structure.
+Redirect 301 /courses/data-science.html /data-science-course-jaipur.php
+Redirect 301 /courses/data-analytics.html /data-analytics-course-jaipur.php
+Redirect 301 /courses/python-programming.html /python-programming-course-jaipur.php
+Redirect 301 /courses/machine-learning.html /machine-learning-course-jaipur.php
+Redirect 301 /courses/artificial-intelligence.html /artificial-intelligence-course-jaipur.php
+Redirect 301 /courses/generative-ai.html /generative-ai-course-jaipur.php
+Redirect 301 /courses/power-bi.html /power-bi-course-jaipur.php
+Redirect 301 /courses/sql.html /sql-course-jaipur.php
+Redirect 301 /courses/advanced-excel.html /advanced-excel-course-jaipur.php
+Redirect 301 /courses/full-stack-development.html /full-stack-development-course-jaipur.php
+Redirect 301 /courses/web-development.html /web-development-course-jaipur.php
+Redirect 301 /courses/java-programming.html /java-programming-course-jaipur.php
+Redirect 301 /courses/c-programming.html /c-programming-course-jaipur.php
+Redirect 301 /courses/cpp-programming.html /cpp-programming-course-jaipur.php
+Redirect 301 /courses/dsa.html /data-structures-algorithms-course-jaipur.php
+Redirect 301 /courses/digital-marketing.html /digital-marketing-course-jaipur.php
+
+# Existing blog URLs -> clean guide URLs.
+Redirect 301 /blogs/best-data-science-course-career-guide.html /best-data-science-course-career-guide.php
+Redirect 301 /blogs/data-analytics-vs-data-science.html /data-analytics-vs-data-science.php
+Redirect 301 /blogs/python-for-data-science-roadmap.html /python-for-data-science-roadmap.php
+
+# Course detail routing. Keeps requested .php URL in the browser.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([a-z0-9-]+-course-jaipur)\.php$ course.php?slug=$1 [L,QSA,NC]
+
+# Learning-guide routing.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(best-data-science-course-career-guide|data-analytics-vs-data-science|python-for-data-science-roadmap)\.php$ guide.php?slug=$1 [L,QSA,NC]
+
+# Basic security headers where supported by Apache.
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
