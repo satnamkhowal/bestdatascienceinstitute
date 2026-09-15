@@ -1,10 +1,26 @@
 <?php
 $pageTitle='IT & Data Science Courses in Jaipur | Best Data Science Institute';
 $pageDescription='Explore Data Science, Data Analytics, AI, Python, Power BI, SQL, Full Stack, Java, Cloud, DevOps and digital career courses in Jaipur.';
+$canonical='https://bestdatascienceinstitute.com/courses.php';
+$catalogData=require __DIR__.'/inc/site-data.php';
+$extraCourses=require __DIR__.'/inc/course-extras.php';
+$courses=array_replace($catalogData['courses'],$extraCourses);
+$itemList=[];
+$position=1;
+foreach($courses as $slug=>$courseItem){
+  $itemList[]=[
+    '@type'=>'ListItem',
+    'position'=>$position++,
+    'url'=>'https://bestdatascienceinstitute.com/'.$slug.'.php',
+    'name'=>$courseItem['title']
+  ];
+}
+$structuredData=[
+  ['@context'=>'https://schema.org','@type'=>'CollectionPage','name'=>'IT & Data Science Courses in Jaipur','url'=>$canonical,'description'=>$pageDescription],
+  ['@context'=>'https://schema.org','@type'=>'ItemList','name'=>'Courses at Best Data Science Institute','numberOfItems'=>count($courses),'itemListElement'=>$itemList]
+];
 require __DIR__.'/inc/header.php';
 require_once __DIR__.'/inc/course-card.php';
-$extraCourses=require __DIR__.'/inc/course-extras.php';
-$courses=array_replace($data['courses'],$extraCourses);
 ?>
 <main class="bdsi-page">
 <section class="bdsi-breadcrumb"><div class="container"><span class="bdsi-kicker">Courses</span><h1>Job-Oriented IT & Data Courses in Jaipur</h1><p>Explore practical learning paths with projects, mentor guidance and career preparation. Search by skill or filter by course category.</p></div></section>
