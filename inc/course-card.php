@@ -1,0 +1,92 @@
+<?php
+if (!function_exists('bdsi_course_visual_meta')) {
+    function bdsi_course_visual_meta(string $slug, array $course): array
+    {
+        $visuals = [
+            'data-science-course-jaipur' => ['DS', 'Data Science', 'tone-mint'],
+            'data-analytics-course-jaipur' => ['DA', 'Data Analytics', 'tone-blue'],
+            'python-programming-course-jaipur' => ['PY', 'Python', 'tone-gold'],
+            'machine-learning-course-jaipur' => ['ML', 'Machine Learning', 'tone-violet'],
+            'artificial-intelligence-course-jaipur' => ['AI', 'Artificial Intelligence', 'tone-rose'],
+            'generative-ai-course-jaipur' => ['GA', 'Generative AI', 'tone-purple'],
+            'power-bi-course-jaipur' => ['BI', 'Power BI', 'tone-amber'],
+            'sql-course-jaipur' => ['SQL', 'SQL', 'tone-cyan'],
+            'advanced-excel-course-jaipur' => ['XL', 'Advanced Excel', 'tone-green'],
+            'full-stack-development-course-jaipur' => ['FS', 'Full Stack', 'tone-indigo'],
+            'web-development-course-jaipur' => ['WD', 'Web Development', 'tone-violet'],
+            'java-programming-course-jaipur' => ['JAVA', 'Java', 'tone-rose'],
+            'c-programming-course-jaipur' => ['C', 'C Programming', 'tone-slate'],
+            'cpp-programming-course-jaipur' => ['C++', 'C++', 'tone-blue'],
+            'digital-marketing-course-jaipur' => ['DM', 'Digital Marketing', 'tone-orange'],
+        ];
+
+        if (isset($visuals[$slug])) {
+            return $visuals[$slug];
+        }
+
+        $title = preg_replace('/ Course in Jaipur$/', '', $course['title'] ?? 'IT Course');
+        $words = preg_split('/\s+/', trim($title));
+        $symbol = '';
+        foreach (array_slice($words, 0, 2) as $word) {
+            $symbol .= strtoupper(substr($word, 0, 1));
+        }
+        return [$symbol ?: 'IT', $title, 'tone-mint'];
+    }
+}
+
+if (!function_exists('bdsi_course_level')) {
+    function bdsi_course_level(array $course): string
+    {
+        $category = $course['category'] ?? '';
+        if ($category === 'Data Science & AI' || $category === 'Full Stack Development') {
+            return 'Beginner to Advanced';
+        }
+        if ($category === 'Analytics') {
+            return 'Beginner to Intermediate';
+        }
+        return 'Beginner Friendly';
+    }
+}
+
+if (!function_exists('bdsi_course_visual')) {
+    function bdsi_course_visual(string $slug, array $course, bool $large = false): string
+    {
+        [$symbol, $shortTitle, $tone] = bdsi_course_visual_meta($slug, $course);
+        $url = htmlspecialchars($slug . '.php');
+        $largeClass = $large ? ' bdsi-course-visual-lg' : '';
+        return '<a class="bdsi-course-visual ' . htmlspecialchars($tone) . $largeClass . '" href="' . $url . '" aria-label="View ' . htmlspecialchars($course['title'] ?? $shortTitle) . '">' .
+            '<span class="bdsi-course-symbol">' . htmlspecialchars($symbol) . '</span>' .
+            '<span class="bdsi-course-visual-label">' . htmlspecialchars($shortTitle) . '</span>' .
+            '<span class="bdsi-course-orbit" aria-hidden="true"></span>' .
+            '</a>';
+    }
+}
+
+if (!function_exists('bdsi_course_card')) {
+    function bdsi_course_card(string $slug, array $course, bool $compact = false): string
+    {
+        $url = htmlspecialchars($slug . '.php');
+        $title = htmlspecialchars($course['title'] ?? 'Course');
+        $category = htmlspecialchars($course['category'] ?? 'IT Courses');
+        $summary = htmlspecialchars($course['summary'] ?? 'Practical, project-focused technology training.');
+        $duration = htmlspecialchars($course['duration'] ?? 'Ask for duration');
+        $level = htmlspecialchars(bdsi_course_level($course));
+        $skills = array_slice($course['skills'] ?? [], 0, $compact ? 3 : 4);
+
+        $html = '<article class="bdsi-course-card h-100">';
+        $html .= bdsi_course_visual($slug, $course);
+        $html .= '<div class="bdsi-course-body">';
+        $html .= '<div class="d-flex justify-content-between align-items-start gap-2"><span class="badge">' . $category . '</span><span class="bdsi-course-mode">Projects</span></div>';
+        $html .= '<h3><a href="' . $url . '">' . $title . '</a></h3>';
+        $html .= '<p class="bdsi-course-summary">' . $summary . '</p>';
+        $html .= '<div class="bdsi-course-skills">';
+        foreach ($skills as $skill) {
+            $html .= '<span class="bdsi-pill">' . htmlspecialchars($skill) . '</span>';
+        }
+        $html .= '</div>';
+        $html .= '<div class="bdsi-course-meta"><span><strong>' . $duration . '</strong><small>Duration</small></span><span><strong>' . $level . '</strong><small>Level</small></span></div>';
+        $html .= '<a class="bdsi-course-cta" href="' . $url . '"><span>View Course</span><span aria-hidden="true">→</span></a>';
+        $html .= '</div></article>';
+        return $html;
+    }
+}
