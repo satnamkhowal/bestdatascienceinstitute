@@ -62,7 +62,7 @@ RewriteRule ^([a-z0-9-]+-course-jaipur)\.php$ course.php?slug=$1 [L,QSA,NC]
 
 # SEO learning-guide routing.
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(best-data-science-course-career-guide|data-analytics-vs-data-science|python-for-data-science-roadmap|best-data-science-course-jaipur-2026|data-science-course-fees-jaipur|data-science-syllabus-roadmap-2026|data-analyst-roadmap-2026|data-analytics-course-syllabus-jaipur|power-bi-roadmap-beginners|sql-for-data-analysts-roadmap|generative-ai-for-data-analysts|data-analyst-course-jaipur-career-guide-2026)\.php$ guide.php?slug=$1 [L,QSA,NC]
+RewriteRule ^(best-data-science-course-career-guide|data-analytics-vs-data-science|python-for-data-science-roadmap|best-data-science-course-jaipur-2026|data-science-course-fees-jaipur|data-science-syllabus-roadmap-2026|data-analyst-roadmap-2026|data-analytics-course-syllabus-jaipur|power-bi-roadmap-beginners|sql-for-data-analysts-roadmap|generative-ai-for-data-analysts|data-analyst-course-jaipur-career-guide-2026|data-analyst-interview-questions-2026)\.php$ guide.php?slug=$1 [L,QSA,NC]
 
 # Basic security headers where supported by Apache.
 <IfModule mod_headers.c>
