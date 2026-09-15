@@ -50,6 +50,21 @@ $structuredData=[
 $guides=require __DIR__.'/inc/guide-data.php';
 $relatedGuides=[];
 foreach($guides as $guideSlug=>$guide){if(($guide['course']['url']??'')===$slug.'.php'){$relatedGuides[$guideSlug]=$guide;}}
+$relatedCourses=[];
+foreach($data['courses'] as $relatedSlug=>$relatedCourse){
+  if($relatedSlug===$slug) continue;
+  if(($relatedCourse['category']??'')===($course['category']??'')){
+    $relatedCourses[$relatedSlug]=$relatedCourse;
+  }
+  if(count($relatedCourses)>=3) break;
+}
+if(count($relatedCourses)<3){
+  foreach($data['courses'] as $relatedSlug=>$relatedCourse){
+    if($relatedSlug===$slug || isset($relatedCourses[$relatedSlug])) continue;
+    $relatedCourses[$relatedSlug]=$relatedCourse;
+    if(count($relatedCourses)>=3) break;
+  }
+}
 require __DIR__.'/inc/header.php';
 ?>
 <main class="bdsi-page">
@@ -67,6 +82,7 @@ require __DIR__.'/inc/header.php';
 </div>
 <div class="col-lg-4"><div class="bdsi-content-card bdsi-course-snapshot position-sticky" style="top:110px"><?=bdsi_course_visual($slug,$course)?><span class="bdsi-kicker">Course Snapshot</span><h3 class="mt-2"><?=htmlspecialchars($course['title'])?></h3><p><?=htmlspecialchars($course['summary'])?></p><ul class="bdsi-checklist"><li><?=htmlspecialchars($course['duration'])?></li><li><?=htmlspecialchars(bdsi_course_level($course))?></li><li>Practical assignments</li><li>Project guidance</li><li>Interview preparation</li><li>Placement assistance</li></ul><a class="btn btn-accent w-100" href="contact.php?interest=<?=urlencode($courseName)?>#enquiry">Enquire About This Course</a></div></div>
 </div></div></section>
-<section class="bdsi-section bdsi-section-alt"><div class="container"><div class="row g-5"><div class="col-lg-5"><span class="bdsi-kicker">Free Counselling</span><h2 class="mt-2">Ask About Fees, Batch & Learning Mode</h2><p>Current batch schedule, fee and online/offline availability can vary by program. Submit an enquiry for the latest details.</p></div><div class="col-lg-7"><?php include __DIR__.'/inc/enquiry-form.php'; ?></div></div></div></section>
+<?php if($relatedCourses): ?><section class="bdsi-section bdsi-section-alt"><div class="container"><div class="bdsi-section-title"><span class="bdsi-kicker">Related Learning Paths</span><h2 class="mt-2">Explore Courses Related to <?=htmlspecialchars($courseName)?></h2><p>Compare nearby skills and build a learning path that matches your career goal.</p></div><div class="row g-4"><?php foreach($relatedCourses as $relatedSlug=>$relatedCourse): ?><div class="col-md-6 col-xl-4"><?=bdsi_course_card($relatedSlug,$relatedCourse,true)?></div><?php endforeach; ?></div><div class="mt-4"><a class="btn btn-accent" href="courses.php">Browse All Courses</a></div></div></section><?php endif; ?>
+<section class="bdsi-section"><div class="container"><div class="row g-5"><div class="col-lg-5"><span class="bdsi-kicker">Free Counselling</span><h2 class="mt-2">Ask About Fees, Batch & Learning Mode</h2><p>Current batch schedule, fee and online/offline availability can vary by program. Submit an enquiry for the latest details.</p></div><div class="col-lg-7"><?php include __DIR__.'/inc/enquiry-form.php'; ?></div></div></div></section>
 </main>
 <?php require __DIR__.'/inc/footer.php'; ?>
