@@ -9,11 +9,29 @@ if (!function_exists('bdsi_course_visual_meta')) {
             'machine-learning-course-jaipur' => ['ML', 'Machine Learning', 'tone-violet'],
             'artificial-intelligence-course-jaipur' => ['AI', 'Artificial Intelligence', 'tone-rose'],
             'generative-ai-course-jaipur' => ['GA', 'Generative AI', 'tone-purple'],
+            'agentic-ai-course-jaipur' => ['AG', 'Agentic AI', 'tone-violet'],
+            'deep-learning-course-jaipur' => ['DL', 'Deep Learning', 'tone-indigo'],
+            'nlp-course-jaipur' => ['NLP', 'Natural Language Processing', 'tone-cyan'],
+            'computer-vision-course-jaipur' => ['CV', 'Computer Vision', 'tone-blue'],
+            'llm-course-jaipur' => ['LLM', 'Large Language Models', 'tone-purple'],
+            'rag-course-jaipur' => ['RAG', 'RAG Training', 'tone-mint'],
+            'mlops-course-jaipur' => ['MLOPS', 'MLOps', 'tone-slate'],
             'power-bi-course-jaipur' => ['BI', 'Power BI', 'tone-amber'],
             'sql-course-jaipur' => ['SQL', 'SQL', 'tone-cyan'],
             'advanced-excel-course-jaipur' => ['XL', 'Advanced Excel', 'tone-green'],
+            'business-analytics-course-jaipur' => ['BA', 'Business Analytics', 'tone-blue'],
+            'ai-business-analyst-course-jaipur' => ['AIBA', 'AI Business Analyst', 'tone-mint'],
             'full-stack-development-course-jaipur' => ['FS', 'Full Stack', 'tone-indigo'],
             'web-development-course-jaipur' => ['WD', 'Web Development', 'tone-violet'],
+            'mern-stack-course-jaipur' => ['MERN', 'MERN Stack', 'tone-green'],
+            'mean-stack-course-jaipur' => ['MEAN', 'MEAN Stack', 'tone-rose'],
+            'java-full-stack-course-jaipur' => ['JFS', 'Java Full Stack', 'tone-orange'],
+            'python-full-stack-course-jaipur' => ['PFS', 'Python Full Stack', 'tone-gold'],
+            'asp-net-full-stack-course-jaipur' => ['.NET', 'ASP.NET Full Stack', 'tone-indigo'],
+            'react-js-course-jaipur' => ['RE', 'React.js', 'tone-cyan'],
+            'react-nextjs-course-jaipur' => ['RN', 'React & Next.js', 'tone-slate'],
+            'nodejs-course-jaipur' => ['NODE', 'Node.js Backend', 'tone-green'],
+            'flutter-course-jaipur' => ['FL', 'Flutter App Development', 'tone-blue'],
             'java-programming-course-jaipur' => ['JAVA', 'Java', 'tone-rose'],
             'c-programming-course-jaipur' => ['C', 'C Programming', 'tone-slate'],
             'cpp-programming-course-jaipur' => ['C++', 'C++', 'tone-blue'],
@@ -21,18 +39,18 @@ if (!function_exists('bdsi_course_visual_meta')) {
             'php-course-jaipur' => ['PHP', 'PHP', 'tone-purple'],
             'c-sharp-course-jaipur' => ['C#', 'C#', 'tone-violet'],
             'data-structures-algorithms-course-jaipur' => ['DSA', 'DSA', 'tone-blue'],
-            'mern-stack-course-jaipur' => ['MERN', 'MERN Stack', 'tone-green'],
-            'mean-stack-course-jaipur' => ['MEAN', 'MEAN Stack', 'tone-rose'],
-            'java-full-stack-course-jaipur' => ['JFS', 'Java Full Stack', 'tone-orange'],
-            'python-full-stack-course-jaipur' => ['PFS', 'Python Full Stack', 'tone-gold'],
-            'asp-net-full-stack-course-jaipur' => ['.NET', 'ASP.NET Full Stack', 'tone-indigo'],
-            'react-js-course-jaipur' => ['RE', 'React.js', 'tone-cyan'],
-            'business-analytics-course-jaipur' => ['BA', 'Business Analytics', 'tone-blue'],
+            'programming-fundamentals-course-jaipur' => ['PF', 'Programming Fundamentals', 'tone-slate'],
             'cloud-computing-course-jaipur' => ['CL', 'Cloud Computing', 'tone-cyan'],
             'aws-course-jaipur' => ['AWS', 'AWS', 'tone-orange'],
+            'azure-course-jaipur' => ['AZ', 'Azure Cloud', 'tone-blue'],
             'devops-course-jaipur' => ['DO', 'DevOps', 'tone-indigo'],
+            'docker-kubernetes-course-jaipur' => ['DK', 'Docker & Kubernetes', 'tone-cyan'],
+            'git-github-course-jaipur' => ['GIT', 'Git & GitHub', 'tone-slate'],
             'cyber-security-course-jaipur' => ['CS', 'Cyber Security', 'tone-rose'],
             'digital-marketing-course-jaipur' => ['DM', 'Digital Marketing', 'tone-orange'],
+            'ui-ux-design-course-jaipur' => ['UX', 'UI/UX Design', 'tone-purple'],
+            'tally-prime-gst-course-jaipur' => ['TG', 'Tally Prime & GST', 'tone-green'],
+            'software-testing-course-jaipur' => ['QA', 'Software Testing & QA', 'tone-blue'],
         ];
 
         if (isset($visuals[$slug])) {
@@ -56,7 +74,7 @@ if (!function_exists('bdsi_course_level')) {
         if ($category === 'Data Science & AI' || $category === 'Full Stack Development') {
             return 'Beginner to Advanced';
         }
-        if ($category === 'Analytics' || $category === 'Cloud & Security') {
+        if ($category === 'Analytics' || $category === 'Cloud & Security' || $category === 'Career & Business') {
             return 'Beginner to Intermediate';
         }
         return 'Beginner Friendly';
