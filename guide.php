@@ -1,6 +1,6 @@
 <?php
 $slug=preg_replace('/[^a-z0-9-]/','',$_GET['slug']??'');
-$articles=array_merge(require __DIR__.'/inc/guide-data.php', require __DIR__.'/inc/legacy-guide-data.php');
+$articles=array_merge(require __DIR__.'/inc/guide-data.php', require __DIR__.'/inc/legacy-guide-data.php', require __DIR__.'/inc/guide-data-local-seo.php');
 if(!$slug || !isset($articles[$slug])){
   http_response_code(404);
   $pageTitle='Guide Not Found | Best Data Science Institute';
@@ -19,12 +19,7 @@ $ogType='article';
 $faqEntities=[];
 foreach($a['faqs'] as $faq){$faqEntities[]=['@type'=>'Question','name'=>$faq[0],'acceptedAnswer'=>['@type'=>'Answer','text'=>$faq[1]]];}
 $structuredData=[
-  [
-    '@context'=>'https://schema.org','@type'=>'Article','headline'=>$a['title'],'description'=>$a['description'],
-    'mainEntityOfPage'=>$canonical,'datePublished'=>'2026-06-10','dateModified'=>'2026-09-15',
-    'author'=>['@type'=>'Organization','name'=>'Best Data Science Institute'],
-    'publisher'=>['@type'=>'Organization','name'=>'Best Data Science Institute','url'=>'https://bestdatascienceinstitute.com/']
-  ],
+  ['@context'=>'https://schema.org','@type'=>'Article','headline'=>$a['title'],'description'=>$a['description'],'mainEntityOfPage'=>$canonical,'datePublished'=>'2026-09-15','dateModified'=>'2026-09-15','author'=>['@type'=>'Organization','name'=>'Best Data Science Institute'],'publisher'=>['@type'=>'Organization','name'=>'Best Data Science Institute','url'=>'https://bestdatascienceinstitute.com/']],
   ['@context'=>'https://schema.org','@type'=>'FAQPage','mainEntity'=>$faqEntities],
   ['@context'=>'https://schema.org','@type'=>'BreadcrumbList','itemListElement'=>[
     ['@type'=>'ListItem','position'=>1,'name'=>'Home','item'=>'https://bestdatascienceinstitute.com/'],
