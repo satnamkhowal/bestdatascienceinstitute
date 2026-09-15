@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /inc/
+Disallow: /storage/
+Disallow: /submit-enquiry.php
+
+Sitemap: https://bestdatascienceinstitute.com/sitemap.xml
