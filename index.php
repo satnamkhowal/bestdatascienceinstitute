@@ -7,6 +7,7 @@ $structuredData=[
   ['@context'=>'https://schema.org','@type'=>'WebSite','name'=>'Best Data Science Institute','url'=>'https://bestdatascienceinstitute.com/']
 ];
 require __DIR__.'/inc/header.php';
+require_once __DIR__.'/inc/course-card.php';
 $courses=$data['courses'];
 $featured=['data-science-course-jaipur','data-analytics-course-jaipur','python-programming-course-jaipur','machine-learning-course-jaipur','artificial-intelligence-course-jaipur','power-bi-course-jaipur'];
 $latestGuides=[
@@ -38,14 +39,14 @@ $latestGuides=[
   <div class="col-6 col-lg-3"><div class="bdsi-stat"><strong>Projects</strong><span>Portfolio Focus</span></div></div>
   <div class="col-6 col-lg-3"><div class="bdsi-stat"><strong>Career</strong><span>Guidance & Preparation</span></div></div>
 </div></div></section>
-<section class="bdsi-section"><div class="container">
-  <div class="bdsi-section-title"><span class="bdsi-kicker">Popular Learning Paths</span><h2 class="mt-2">Courses Built Around Practical Work</h2><p>Start with fundamentals, practise tools and workflows, then build portfolio-ready projects.</p></div>
+<section class="bdsi-section bdsi-courses-showcase"><div class="container">
+  <div class="bdsi-section-title"><span class="bdsi-kicker">Popular Learning Paths</span><h2 class="mt-2">Courses Built Around Practical Work</h2><p>Start with fundamentals, practise tools and workflows, then build portfolio-ready projects. Each course card now opens its dedicated curriculum page.</p></div>
   <div class="row g-4">
   <?php foreach($featured as $slug): $c=$courses[$slug]; ?>
-    <div class="col-md-6 col-xl-4"><article class="bdsi-course-card h-100"><span class="badge"><?=htmlspecialchars($c['category'])?></span><h3><?=htmlspecialchars($c['title'])?></h3><p><?=htmlspecialchars($c['summary'])?></p><div class="mb-3"><span class="bdsi-pill"><?=htmlspecialchars($c['duration'])?></span><span class="bdsi-pill">Projects Included</span></div><a href="<?=$slug?>.php">View Course →</a></article></div>
+    <div class="col-md-6 col-xl-4"><?=bdsi_course_card($slug,$c,true)?></div>
   <?php endforeach; ?>
   </div>
-  <div class="mt-4"><a class="btn btn-accent" href="courses.php">Browse All Courses</a></div>
+  <div class="mt-4 text-center"><a class="btn btn-accent" href="courses.php">Browse All Courses</a></div>
 </div></section>
 <section class="bdsi-section bdsi-section-alt"><div class="container"><div class="row g-5 align-items-center">
   <div class="col-lg-5"><img src="image/img2.png" class="img-fluid rounded-4" alt="Practical mentor-led IT training in Jaipur" loading="lazy"></div>
