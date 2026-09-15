@@ -44,6 +44,9 @@ Redirect 301 /blogs/best-data-science-course-career-guide.html /best-data-scienc
 Redirect 301 /blogs/data-analytics-vs-data-science.html /data-analytics-vs-data-science.php
 Redirect 301 /blogs/python-for-data-science-roadmap.html /python-for-data-science-roadmap.php
 
+# Preserve indexed WordPress permalink on the same public URL.
+RewriteRule ^top-programming-skills-every-student-should-learn-before-graduation/?$ guide.php?slug=top-programming-skills-every-student-should-learn-before-graduation [L,QSA,NC]
+
 # Course detail routing. Keeps requested .php URL in the browser.
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^([a-z0-9-]+-course-jaipur)\.php$ course.php?slug=$1 [L,QSA,NC]
