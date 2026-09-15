@@ -1,20 +1,12 @@
 DirectoryIndex index.php index.html
 
 RewriteEngine On
-
-# Protect implementation and lead-storage directories.
 RewriteRule ^(?:inc|storage)(?:/|$) - [F,L]
-
-# Preserve important existing production course slugs whose new canonical name changes.
 RewriteRule ^python-course-jaipur/?$ /python-programming-course-jaipur.php [R=301,L,NC]
 RewriteRule ^java-course-jaipur/?$ /java-programming-course-jaipur.php [R=301,L,NC]
-
-# Preserve existing pretty course URLs and move them to the Forsk-style .php structure.
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^([a-z0-9-]+-course-jaipur)/?$ $1.php [R=301,L,NE,NC]
-
-# Legacy top-level HTML pages from the previous site/theme.
 Redirect 301 /index.html /
 Redirect 301 /index-2.html /
 Redirect 301 /courses.html /courses.php
@@ -29,8 +21,6 @@ Redirect 301 /team.html /about-us.php
 Redirect 301 /service.html /about-us.php#career-support
 Redirect 301 /faq.html /about-us.php#faqs
 Redirect 301 /pricing_plan.html /contact.php#enquiry
-
-# Existing live course URLs -> Forsk-style course URL structure.
 Redirect 301 /courses/data-science.html /data-science-course-jaipur.php
 Redirect 301 /courses/data-analytics.html /data-analytics-course-jaipur.php
 Redirect 301 /courses/python-programming.html /python-programming-course-jaipur.php
@@ -47,24 +37,14 @@ Redirect 301 /courses/c-programming.html /c-programming-course-jaipur.php
 Redirect 301 /courses/cpp-programming.html /cpp-programming-course-jaipur.php
 Redirect 301 /courses/dsa.html /data-structures-algorithms-course-jaipur.php
 Redirect 301 /courses/digital-marketing.html /digital-marketing-course-jaipur.php
-
-# Existing blog URLs -> clean guide URLs.
 Redirect 301 /blogs/best-data-science-course-career-guide.html /best-data-science-course-career-guide.php
 Redirect 301 /blogs/data-analytics-vs-data-science.html /data-analytics-vs-data-science.php
 Redirect 301 /blogs/python-for-data-science-roadmap.html /python-for-data-science-roadmap.php
-
-# Preserve indexed WordPress permalink on the same public URL.
 RewriteRule ^top-programming-skills-every-student-should-learn-before-graduation/?$ guide.php?slug=top-programming-skills-every-student-should-learn-before-graduation [L,QSA,NC]
-
-# Course detail routing. Keeps requested .php URL in the browser.
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^([a-z0-9-]+-course-jaipur)\.php$ course.php?slug=$1 [L,QSA,NC]
-
-# SEO learning-guide routing.
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(best-data-science-course-career-guide|data-analytics-vs-data-science|python-for-data-science-roadmap|best-data-science-course-jaipur-2026|data-science-course-fees-jaipur|data-science-syllabus-roadmap-2026|data-analyst-roadmap-2026|data-analytics-course-syllabus-jaipur|power-bi-roadmap-beginners|sql-for-data-analysts-roadmap|generative-ai-for-data-analysts|data-analyst-course-jaipur-career-guide-2026|data-analyst-interview-questions-2026)\.php$ guide.php?slug=$1 [L,QSA,NC]
-
-# Basic security headers where supported by Apache.
+RewriteRule ^(best-data-science-course-career-guide|data-analytics-vs-data-science|python-for-data-science-roadmap|best-data-science-course-jaipur-2026|data-science-course-fees-jaipur|data-science-syllabus-roadmap-2026|data-analyst-roadmap-2026|data-analytics-course-syllabus-jaipur|power-bi-roadmap-beginners|sql-for-data-analysts-roadmap|generative-ai-for-data-analysts|data-analyst-course-jaipur-career-guide-2026|data-analyst-interview-questions-2026|sql-interview-questions-data-analyst-2026)\.php$ guide.php?slug=$1 [L,QSA,NC]
 <IfModule mod_headers.c>
   Header always set X-Content-Type-Options "nosniff"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
