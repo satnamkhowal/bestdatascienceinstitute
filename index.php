@@ -8,7 +8,9 @@ $structuredData=[
 ];
 require __DIR__.'/inc/header.php';
 require_once __DIR__.'/inc/course-card.php';
-$courses=$data['courses'];
+$extraCourses=require __DIR__.'/inc/course-extras.php';
+$courses=array_replace($data['courses'],$extraCourses);
+$courseCount=count($courses);
 $featured=['data-science-course-jaipur','data-analytics-course-jaipur','python-programming-course-jaipur','machine-learning-course-jaipur','artificial-intelligence-course-jaipur','power-bi-course-jaipur'];
 $latestGuides=[
  ['best-data-science-course-jaipur-2026','Best Data Science Course in Jaipur in 2026: What to Check Before Enrolling'],
@@ -34,19 +36,19 @@ $latestGuides=[
   </div></div>
 </section>
 <section class="bdsi-stats"><div class="container"><div class="row g-3">
-  <div class="col-6 col-lg-3"><div class="bdsi-stat"><strong>15+</strong><span>Technology Courses</span></div></div>
+  <div class="col-6 col-lg-3"><div class="bdsi-stat"><strong><?=$courseCount?></strong><span>Technology Courses</span></div></div>
   <div class="col-6 col-lg-3"><div class="bdsi-stat"><strong>Hands-on</strong><span>Practical Learning</span></div></div>
   <div class="col-6 col-lg-3"><div class="bdsi-stat"><strong>Projects</strong><span>Portfolio Focus</span></div></div>
   <div class="col-6 col-lg-3"><div class="bdsi-stat"><strong>Career</strong><span>Guidance & Preparation</span></div></div>
 </div></div></section>
 <section class="bdsi-section bdsi-courses-showcase"><div class="container">
-  <div class="bdsi-section-title"><span class="bdsi-kicker">Popular Learning Paths</span><h2 class="mt-2">Courses Built Around Practical Work</h2><p>Start with fundamentals, practise tools and workflows, then build portfolio-ready projects. Each course card now opens its dedicated curriculum page.</p></div>
+  <div class="bdsi-section-title"><span class="bdsi-kicker">Popular Learning Paths</span><h2 class="mt-2">Courses Built Around Practical Work</h2><p>Start with fundamentals, practise tools and workflows, then build portfolio-ready projects. Each course card opens its dedicated curriculum page.</p></div>
   <div class="row g-4">
   <?php foreach($featured as $slug): $c=$courses[$slug]; ?>
     <div class="col-md-6 col-xl-4"><?=bdsi_course_card($slug,$c,true)?></div>
   <?php endforeach; ?>
   </div>
-  <div class="mt-4 text-center"><a class="btn btn-accent" href="courses.php">Browse All Courses</a></div>
+  <div class="mt-4 text-center"><a class="btn btn-accent" href="courses.php">Browse All <?=$courseCount?> Courses</a></div>
 </div></section>
 <section class="bdsi-section bdsi-section-alt"><div class="container"><div class="row g-5 align-items-center">
   <div class="col-lg-5"><img src="image/img2.png" class="img-fluid rounded-4" alt="Practical mentor-led IT training in Jaipur" loading="lazy"></div>
