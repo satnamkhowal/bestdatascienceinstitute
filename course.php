@@ -1,5 +1,7 @@
 <?php
 $data = require __DIR__.'/inc/site-data.php';
+$extraCourses = require __DIR__.'/inc/course-extras.php';
+$data['courses'] = array_replace($data['courses'], $extraCourses);
 require_once __DIR__.'/inc/course-card.php';
 $slug = trim($_GET['slug'] ?? 'data-science-course-jaipur');
 $slug = preg_replace('/[^a-z0-9-]/','',$slug);
