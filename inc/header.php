@@ -54,44 +54,55 @@ $structuredData = $structuredData ?? [];
           <li class="nav-item dropdown position-static"><a class="nav-link dropdown-toggle" href="courses.php" data-bs-toggle="dropdown">Courses</a>
             <div class="dropdown-menu bdsi-mega-menu">
               <div class="row g-4">
-                <div class="col-lg-3"><h6>Programming</h6>
+                <div class="col-lg-3"><h6>Data Science & AI</h6>
+                  <a href="data-science-course-jaipur.php">Data Science</a>
+                  <a href="data-analytics-course-jaipur.php">Data Analytics</a>
+                  <a href="machine-learning-course-jaipur.php">Machine Learning</a>
+                  <a href="artificial-intelligence-course-jaipur.php">Artificial Intelligence</a>
+                  <a href="generative-ai-course-jaipur.php">Generative AI</a>
+                  <a href="agentic-ai-course-jaipur.php">Agentic AI & AI Agents</a>
+                  <a href="deep-learning-course-jaipur.php">Deep Learning</a>
+                  <a href="llm-course-jaipur.php">Large Language Models</a>
+                  <a href="rag-course-jaipur.php">RAG Training</a>
+                </div>
+                <div class="col-lg-3"><h6>Programming & Analytics</h6>
                   <a href="python-programming-course-jaipur.php">Python Programming</a>
                   <a href="java-programming-course-jaipur.php">Java Programming</a>
                   <a href="c-programming-course-jaipur.php">C Programming</a>
                   <a href="cpp-programming-course-jaipur.php">C++ Programming</a>
                   <a href="javascript-course-jaipur.php">JavaScript</a>
-                  <a href="php-course-jaipur.php">PHP</a>
-                  <a href="c-sharp-course-jaipur.php">C#</a>
+                  <a href="data-structures-algorithms-course-jaipur.php">Data Structures & Algorithms</a>
+                  <a href="sql-course-jaipur.php">SQL</a>
+                  <a href="power-bi-course-jaipur.php">Power BI</a>
+                  <a href="advanced-excel-course-jaipur.php">Advanced Excel</a>
                 </div>
-                <div class="col-lg-3"><h6>Full Stack Development</h6>
+                <div class="col-lg-3"><h6>Full Stack & App Development</h6>
                   <a href="full-stack-development-course-jaipur.php">Full Stack Development</a>
                   <a href="mern-stack-course-jaipur.php">MERN Stack</a>
-                  <a href="mean-stack-course-jaipur.php">MEAN Stack</a>
                   <a href="java-full-stack-course-jaipur.php">Java Full Stack</a>
                   <a href="python-full-stack-course-jaipur.php">Python Full Stack</a>
                   <a href="asp-net-full-stack-course-jaipur.php">ASP.NET Full Stack</a>
                   <a href="react-js-course-jaipur.php">React.js</a>
+                  <a href="react-nextjs-course-jaipur.php">React & Next.js</a>
+                  <a href="nodejs-course-jaipur.php">Node.js Backend</a>
+                  <a href="flutter-course-jaipur.php">Flutter App Development</a>
                 </div>
-                <div class="col-lg-3"><h6>Data Science & AI</h6>
-                  <a href="data-analytics-course-jaipur.php">Data Analytics</a>
-                  <a href="business-analytics-course-jaipur.php">Business Analytics</a>
-                  <a href="data-science-course-jaipur.php">Data Science</a>
-                  <a href="machine-learning-course-jaipur.php">Machine Learning</a>
-                  <a href="artificial-intelligence-course-jaipur.php">Artificial Intelligence</a>
-                  <a href="generative-ai-course-jaipur.php">Generative AI</a>
-                  <a href="power-bi-course-jaipur.php">Power BI</a>
-                </div>
-                <div class="col-lg-3"><h6>More Career Skills</h6>
-                  <a href="sql-course-jaipur.php">SQL</a>
-                  <a href="advanced-excel-course-jaipur.php">Advanced Excel</a>
+                <div class="col-lg-3"><h6>Cloud, Security & Career Skills</h6>
                   <a href="cloud-computing-course-jaipur.php">Cloud Computing</a>
                   <a href="aws-course-jaipur.php">AWS</a>
+                  <a href="azure-course-jaipur.php">Azure Cloud</a>
                   <a href="devops-course-jaipur.php">DevOps</a>
+                  <a href="docker-kubernetes-course-jaipur.php">Docker & Kubernetes</a>
                   <a href="cyber-security-course-jaipur.php">Cyber Security</a>
                   <a href="digital-marketing-course-jaipur.php">Digital Marketing</a>
+                  <a href="ui-ux-design-course-jaipur.php">UI/UX Design</a>
+                  <a href="software-testing-course-jaipur.php">Software Testing & QA</a>
                 </div>
               </div>
-              <div class="mt-3 pt-3 border-top border-secondary"><a class="mega-all" href="courses.php">Browse All Courses →</a></div>
+              <div class="mt-3 pt-3 border-top border-secondary d-flex flex-wrap align-items-center justify-content-between gap-2">
+                <span class="small text-secondary">Explore 40+ practical technology learning paths</span>
+                <a class="mega-all" href="courses.php">Browse All Courses →</a>
+              </div>
             </div>
           </li>
           <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Programs</a>
