@@ -24,6 +24,7 @@ $structuredData = $structuredData ?? [];
   <link rel="icon" type="image/svg+xml" href="image/bdsi-logo.svg">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/course-cards.css">
 <?php foreach ($structuredData as $schema): ?>
   <script type="application/ld+json"><?= json_encode($schema, JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE) ?></script>
 <?php endforeach; ?>
