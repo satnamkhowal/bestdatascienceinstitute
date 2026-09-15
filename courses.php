@@ -21,6 +21,7 @@ $courses=array_replace($data['courses'],$extraCourses);
       <button type="button" data-course-filter="Programming">Programming</button>
       <button type="button" data-course-filter="Full Stack Development">Full Stack</button>
       <button type="button" data-course-filter="Cloud & Security">Cloud & Security</button>
+      <button type="button" data-course-filter="Career & Business">Career & Business</button>
       <button type="button" data-course-filter="Digital Marketing">Marketing</button>
     </div>
   </div>
