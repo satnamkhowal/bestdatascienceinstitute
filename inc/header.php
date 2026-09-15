@@ -4,6 +4,8 @@ $site = $data['site'];
 $pageTitle = $pageTitle ?? $site['name'] . ' | Data Science, AI & IT Courses in Jaipur';
 $pageDescription = $pageDescription ?? 'Practical Data Science, Data Analytics, AI, Programming and Full Stack training in Jaipur with projects and career guidance.';
 $canonical = $canonical ?? ('https://bestdatascienceinstitute.com' . strtok($_SERVER['REQUEST_URI'] ?? '/', '?'));
+$ogType = $ogType ?? 'website';
+$structuredData = $structuredData ?? [];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,11 +17,16 @@ $canonical = $canonical ?? ('https://bestdatascienceinstitute.com' . strtok($_SE
   <link rel="canonical" href="<?= htmlspecialchars($canonical) ?>">
   <meta property="og:title" content="<?= htmlspecialchars($pageTitle) ?>">
   <meta property="og:description" content="<?= htmlspecialchars($pageDescription) ?>">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="<?= htmlspecialchars($ogType) ?>">
   <meta property="og:url" content="<?= htmlspecialchars($canonical) ?>">
+  <meta property="og:site_name" content="Best Data Science Institute">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="image/bdsi-logo.svg">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/site.css">
+<?php foreach ($structuredData as $schema): ?>
+  <script type="application/ld+json"><?= json_encode($schema, JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE) ?></script>
+<?php endforeach; ?>
 </head>
 <body>
 <header class="bdsi-header fixed-top">
