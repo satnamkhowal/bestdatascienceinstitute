@@ -8,6 +8,7 @@ RewriteRule ^(?:inc|storage)(?:/|$) - [F,L]
 # Legacy top-level HTML pages from the previous site/theme.
 Redirect 301 /index.html /
 Redirect 301 /index-2.html /
+Redirect 301 /courses.html /courses.php
 Redirect 301 /about.html /about-us.php
 Redirect 301 /contact.html /contact.php
 Redirect 301 /blog.html /blog.php
