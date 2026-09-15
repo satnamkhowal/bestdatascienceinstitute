@@ -4,22 +4,33 @@
     <div class="row g-4">
       <div class="col-lg-4">
         <img src="image/bdsi-logo.svg" alt="Best Data Science Institute" width="220" height="54" class="mb-3">
-        <p>Practical training in Data Science, Analytics, AI, Programming and Full Stack Development for students, graduates and working professionals.</p>
+        <p>Practical training in Data Science, Analytics, AI, Programming, Full Stack Development, Cloud and career-focused technology skills for students, graduates and working professionals.</p>
         <p class="mb-0 small"><?= htmlspecialchars($site['brand_note']) ?></p>
       </div>
-      <div class="col-6 col-lg-2"><h6>Popular Courses</h6>
+      <div class="col-6 col-lg-2"><h6>Data & AI</h6>
         <a href="data-science-course-jaipur.php">Data Science</a>
         <a href="data-analytics-course-jaipur.php">Data Analytics</a>
-        <a href="python-programming-course-jaipur.php">Python</a>
+        <a href="machine-learning-course-jaipur.php">Machine Learning</a>
+        <a href="generative-ai-course-jaipur.php">Generative AI</a>
+        <a href="agentic-ai-course-jaipur.php">Agentic AI</a>
         <a href="power-bi-course-jaipur.php">Power BI</a>
       </div>
-      <div class="col-6 col-lg-2"><h6>Resources</h6>
+      <div class="col-6 col-lg-2"><h6>Development</h6>
+        <a href="python-programming-course-jaipur.php">Python</a>
+        <a href="java-programming-course-jaipur.php">Java</a>
+        <a href="full-stack-development-course-jaipur.php">Full Stack</a>
+        <a href="mern-stack-course-jaipur.php">MERN Stack</a>
+        <a href="react-js-course-jaipur.php">React.js</a>
         <a href="courses.php">All Courses</a>
+      </div>
+      <div class="col-md-6 col-lg-2"><h6>Resources</h6>
         <a href="about-us.php">About Us</a>
         <a href="blog.php">Career Guides</a>
+        <a href="courses.php">Course Directory</a>
+        <a href="contact.php#enquiry">Free Counselling</a>
         <a href="contact.php">Contact</a>
       </div>
-      <div class="col-lg-4"><h6>Contact</h6>
+      <div class="col-md-6 col-lg-2"><h6>Contact</h6>
         <p class="mb-2">Mansarovar & Mahesh Nagar, Jaipur, Rajasthan</p>
         <a href="tel:<?= htmlspecialchars($site['phone']) ?>"><?= htmlspecialchars($site['phone_display']) ?></a>
         <a href="mailto:<?= htmlspecialchars($site['email']) ?>"><?= htmlspecialchars($site['email']) ?></a>
