@@ -6,8 +6,8 @@ RewriteEngine On
 RewriteRule ^(?:inc|storage)(?:/|$) - [F,L]
 
 # Preserve important existing production course slugs whose new canonical name changes.
-Redirect 301 /python-course-jaipur/ /python-programming-course-jaipur.php
-Redirect 301 /java-course-jaipur/ /java-programming-course-jaipur.php
+RewriteRule ^python-course-jaipur/?$ /python-programming-course-jaipur.php [R=301,L,NC]
+RewriteRule ^java-course-jaipur/?$ /java-programming-course-jaipur.php [R=301,L,NC]
 
 # Preserve existing pretty course URLs and move them to the Forsk-style .php structure.
 RewriteCond %{REQUEST_FILENAME} !-f
