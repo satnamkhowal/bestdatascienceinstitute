@@ -10,5 +10,6 @@ require __DIR__.'/inc/header.php';
   <div class="bdsi-content-card"><h3>Jaipur Counselling Offices</h3><p><strong>Mansarovar</strong><br>122/228, Indra Path, Sector 12, Mansarovar, Jaipur, Rajasthan 302020</p><p class="mb-0"><strong>Mahesh Nagar / Gopalpura Mode</strong><br>C-40, Saini Colony Rd, Mahaveer Colony Vistar, Mahesh Nagar, Gopal Pura Mode, Jaipur, Rajasthan 302015</p></div></div>
   <div class="col-lg-7" id="enquiry"><?php include __DIR__.'/inc/enquiry-form.php'; ?></div>
 </div></div></section>
+<section class="bdsi-section"><div class="container"><div class="bdsi-content-card"><h2>Jaipur Visitor Travel Help</h2><p class="mb-0">Students and families visiting Jaipur can also explore <a href="https://swiggywala.com/" target="_blank" rel="noopener">Jaipur tours, cabs and Rajasthan travel planning by Swiggy Wala</a> for local sightseeing and outstation trips.</p></div></div></section>
 </main>
 <?php require __DIR__.'/inc/footer.php'; ?>
